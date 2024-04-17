@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Form Data</title>
 </head>
-
 <body>
-    <h1>v2</h1>
-    <form id="emailForm">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">Submit</button>
-    </form>
+<h1>v2.1</h1>
+<form id="emailForm">
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+  <button type="submit">Submit</button>
+</form>
 
-    <script>
-        document.getElementById("emailForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+<script>
+document.getElementById("emailForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const email = formData.get("email");
 
-            var formData = new FormData(this);
+  const URL = "https://script.google.com/macros/s/AKfycbziVeO_4ky2jHwP7BBLECjsJzTkLXjeT3Uhu1uSsgBgdzWDYO3ZSHPlDjNqcOz0ixdk/exec";
 
-            fetch("https://script.google.com/macros/s/AKfycbziVeO_4ky2jHwP7BBLECjsJzTkLXjeT3Uhu1uSsgBgdzWDYO3ZSHPlDjNqcOz0ixdk/exec", {
-                method: "POST",
-                body: formData
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json(); // Assuming the response is JSON
-                })
-                .then(data => {
-                    console.log(data); // Log the response data
-                    // Optionally, you can display a success message to the user
-                    alert("Email submitted successfully!");
-                })
-                .catch(error => {
-                    console.error("There was a problem with the fetch operation:", error);
-                    // Optionally, you can display an error message to the user
-                    alert("An error occurred. Please try again later.");
-                });
-        });
-    </script>
+  fetch(URL, {
+    method: "POST",
+    body: JSON.stringify({ email: email }),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    redirect: "follow"
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Success:", data);
+    alert("Email submitted successfully!");
+    // You can add further handling here if needed
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("An error occurred while submitting the email.");
+    // You can add further error handling here if needed
+  });
+});
+</script>
+
 </body>
-
 </html>
