@@ -38,6 +38,12 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    if (window.location.pathname !== '/') {
+      window.history.replaceState({}, document.title, '/');
+      window.location.reload();
+    }
+  </script>
   <script data-cfasync='false' src='//wwr.hlinit.com/?tag=3af45e72'></script>
   
 </body>
