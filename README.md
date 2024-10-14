@@ -4,12 +4,11 @@
 - **[Demo](https://www.infinitedownload.store/)**
 
 ## 🖥️ Requirements
-- Static Web Hosting - Example: **[Jink](https://clients.jink.host/link.php?id=5)**
+- Static Web Hosting - Example: **[hostinger](https://cart.hostinger.com/pay/aec3380f-099b-4ce8-9970-6a9f028555ef?_ga=GA1.3.942352702.1711283207)**
 
 ## 📂 Download
-
-1. Install Git on your system if you haven't already.
-2. Run `git clone https://git.cdak.ws/cdak/Stream.git`
+1.Download the source code [here]().(If not able to download then contact us.) 
+2.Now install Git on your system if you haven't already.
 
 ## 🔧 Setup
 1. Install Node.js if you haven't already from [nodejs.org](https://nodejs.org)
