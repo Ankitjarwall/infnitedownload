@@ -36,8 +36,8 @@ export default function Watch() {
   function getSource() {
     let url =
       type === 'movie'
-        ? `${import.meta.env.VITE_SUPER_API}${id}&tmdb=1`
-        : `${import.meta.env.VITE_SUPER_API}${id}&tmdb=1&s=${season}&e=${episode}`;
+        ? `${import.meta.env.VITE_VIDSRC_APP_API}${id}&tmdb=1`
+        : `${import.meta.env.VITE_VIDSRC_APP_API}${id}&tmdb=1&s=${season}&e=${episode}`;
     return url;
   }
 
