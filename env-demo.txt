@@ -1,0 +1,4 @@
+VITE_APP_NAME="infinite download"
+VITE_APP_VERSION="3.2.0"
+VITE_APP_API="https://api.rypr.ru"
+VITE_VIDSRC_APP_API="https://vidsrc.io/embed/"
